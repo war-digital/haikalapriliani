@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Generator Link Undangan - Fikri & Irma</title>
+    <title>Generator Link Undangan - Haikal & Apriliani</title>
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
@@ -62,7 +62,7 @@
 
         <div class="text-center mb-6">
             <h1 class="font-brittany text-4xl text-gold mb-1">Link Generator</h1>
-            <p class="font-playfair text-sm text-dark font-semibold">Undangan Pernikahan Fikri & Irma</p>
+            <p class="font-playfair text-sm text-dark font-semibold">Undangan Pernikahan Haikal & Apriliani</p>
             <div class="w-24 h-0.5 bg-dusty mx-auto mt-3 rounded-full"></div>
         </div>
 
@@ -71,7 +71,7 @@
                 <label for="base-url-input" class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
                     <i class="fas fa-globe text-dusty mr-1.5"></i>Link / Domain Undangan
                 </label>
-                <input type="text" id="base-url-input" value="https://war-digital.github.io/fikri-irma/"
+                <input type="text" id="base-url-input" value="https://war-digital.github.io/haikal-apriliani/"
                     class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-dusty focus:border-transparent transition text-sm text-gray-800 placeholder-gray-400"
                     oninput="generateDetails()">
                 <p class="text-[10px] text-gray-500 mt-1">Ubah jika menggunakan domain / hosting sendiri.</p>
@@ -107,7 +107,7 @@
                     class="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-dusty focus:border-transparent transition text-sm text-gray-800"
                     oninput="generateDetails()">Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i *[Nama Tamu]* untuk menghadiri acara pernikahan kami:
 
-*Fikri & Irma*
+*Haikal & Apriliani*
 
 Berikut link undangan digital kami:
 [Link Undangan]
@@ -183,7 +183,7 @@ Terima kasih.</textarea>
     </div>
 
     <script>
-        const DEFAULT_URL = "https://war-digital.github.io/fikri-irma/";
+        const DEFAULT_URL = "https://war-digital.github.io/haikal-apriliani/";
 
         // Get Base URL for the invitation
         function getBaseUrl() {
@@ -305,8 +305,8 @@ Terima kasih.</textarea>
 
             if (navigator.share) {
                 navigator.share({
-                    title: `Undangan Pernikahan Fikri & Irma`,
-                    text: guestName ? `Undangan Spesial untuk ${guestName}` : `Undangan Pernikahan Fikri & Irma`,
+                    title: `Undangan Pernikahan Haikal & Apriliani`,
+                    text: guestName ? `Undangan Spesial untuk ${guestName}` : `Undangan Pernikahan Haikal & Apriliani`,
                     url: finalUrl
                 }).then(() => {
                     console.log('Berhasil membagikan');

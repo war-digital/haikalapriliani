@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -605,6 +605,62 @@
         .photo-split-wrapper.split-show .photo-ring-border {
             animation: unite-flash 1s ease 2s 1, pulse-ring 2s ease-out 3.2s 1;
         }
+
+
+/* ===== KUBAH (ARCH) CARD BACKGROUND ===== */
+        .slide-section.kubah-slide {
+            background-color: #FDFBF7;
+            padding: 28px 16px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .kubah-card {
+            width: 100%;
+            max-width: 440px;
+            background: #ffffff;
+            border-radius: 120px 120px 24px 24px;
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.06),
+                0 2px 10px rgba(0, 0, 0, 0.03);
+            padding: 50px 22px 36px;
+            position: relative;
+            overflow: visible;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-top: 3px solid #D4AF37;
+        }
+        .kubah-ornamen {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            pointer-events: none;
+        }
+        .kubah-ornamen span {
+            display: block;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            border-radius: 2px;
+        }
+        .kubah-ornamen span:nth-child(1) { width: 100px; opacity: 0.8; }
+        .kubah-ornamen span:nth-child(2) { width: 60px; opacity: 0.5; }
+        .kubah-card .card-modern {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 251, 247, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+        }
+        .kubah-card .card-modern-solid {
+            background: #ffffff;
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        }
+
     </style>
 </head>
 
@@ -612,16 +668,8 @@
 
     <div id="app-container">
 
-        <!-- Sticky Background Layer (Parallax & Crossfade) -->
-        <div class="sticky top-0 w-full h-[100vh] z-0 overflow-hidden pointer-events-none">
-            <div id="bg-layer-1"
-                class="absolute inset-0 bg-1 bg-pan transition-opacity duration-[1500ms] ease-in-out opacity-100"></div>
-            <div id="bg-layer-2"
-                class="absolute inset-0 bg-2 bg-pan transition-opacity duration-[1500ms] ease-in-out opacity-0"></div>
-        </div>
-
         <!-- Content Wrapper -->
-        <div class="relative z-10 w-full -mt-[100vh]">
+        <div class="relative z-10 w-full">
 
             <!-- Loading Screen -->
             <div id="loading"
@@ -646,7 +694,7 @@
             <!-- COVER SECTION (Absolute Overlay) -->
             <section id="cover"
                 class="absolute top-0 left-0 w-full h-[100vh] z-[70] flex flex-col items-center justify-center text-white transition-transform duration-1000 ease-in-out overflow-hidden"
-                data-bg="1">
+                >
                 <!-- Zooming Background Layer -->
                 <div class="absolute inset-0 z-0 cover-bg animate-zoom"></div>
 
@@ -668,7 +716,9 @@
             </section>
 
             <!-- SLIDE 1: HERO -->
-            <section id="hero" class="slide-section px-6 pt-10 pb-20" data-bg="2">
+            <section id="hero" class="slide-section px-6 pt-10 pb-20 relative overflow-hidden">
+                <!-- Foto background HANYA di slide pertama -->
+                <div class="absolute inset-0 hero-bg bg-pan pointer-events-none z-0"></div>
                 <div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
 
                     <!-- Teks atas animate sendiri -->
@@ -692,7 +742,7 @@
                     </div>
 
                     <p class="font-playfair text-lg text-readable mb-4 font-semibold animate-view zoom-in delay-100">
-                        Rabu, 07 Oktober 2026</p>
+                        Rabu, 18 November 2026</p>
 
                     <!-- Countdown Timer -->
                     <div class="flex justify-center gap-3 card-modern p-4 w-full max-w-xs mx-auto float-after animate-view zoom-in delay-200">
@@ -724,170 +774,253 @@
                 </div>
             </section>
 <!-- SLIDE 2: COUPLE -->
-            <section id="couple" class="slide-section px-6 py-10" data-bg="1">
-                <div class="animate-view morph-rise text-center mb-6 mt-10">
-                    <i class="fas fa-bismillah text-3xl mb-2 text-dusty" style="font-family: serif;">﷽</i>
-                    <p class="font-playfair text-sm text-readable-sub leading-relaxed italic">
-                        "Assalamu'alaikum Warahmatullahi Wabarakatuh.<br>
-                        Maha Suci Allah yang telah menciptakan makhluk- Nya berpasang-pasangan. Ya Allah semoga ridho-
-                        Mu tercurah mengiringi pernikahan putra putri kami. Kami Menyelenggarakan Syukuran Pernikahan
-                        Putra Putri Kami."
-                    </p>
-                </div>
+            <section id="couple" class="slide-section kubah-slide" >
+                <div class="kubah-card">
+                    <div class="kubah-ornamen"><span></span><span></span></div>
 
-                <div class="flex flex-col items-center gap-6">
-                    <!-- Groom -->
-                    <div class="animate-view flip-in card-modern p-6 flex flex-col items-center w-full max-w-[320px]">
-                        <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-dusty mb-4 shadow-md">
-                            <img src="pria.png" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-brittany text-2xl text-readable text-center mb-1">HAIKAL</h3>
-                    </div>
-
-                    <div class="animate-view pop-in delay-200 text-3xl font-vibes text-gold">&</div>
-
-                    <!-- Bride -->
-                    <div
-                        class="animate-view slide-right delay-300 card-modern p-6 flex flex-col items-center w-full max-w-[320px]">
-                        <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-dusty mb-4 shadow-md">
-                            <img src="wanita.png" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="font-brittany text-2xl text-readable text-center mb-1">APRILIANI, S.Pd</h3>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 3: SCHEDULE -->
-            <section id="schedule" class="slide-section px-6 py-12" data-bg="2">
-                <div class="animate-view morph-rise text-center mb-8 mt-10">
-                    <h2 class="font-brittany text-4xl text-readable mb-2 glass-text-bold">Rangkaian Acara</h2>
-                    <p class="font-playfair text-xs text-black" style="text-shadow: 0 0 2px rgba(255,255,255,0.8);">
-                        Kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
-                </div>
-
-                <div class="timeline-container relative w-full px-2">
-
-                    <div class="timeline-item">
-                        <div class="card-modern p-5 shadow-lg animate-view slide-left delay-200">
-                            <h3 class="font-playfair font-bold text-lg text-gold-dark mb-1">Akad</h3>
-                            <p class="text-xs mb-1 text-black"><i class="far fa-calendar-alt text-gold mr-2"></i> Rabu,
-                                18 November 2026</p>
-                            <p class="text-xs mb-1 text-black"><i class="far fa-clock text-gold mr-2"></i> 10.00 WITA -
-                                Selesai</p>
-                            <p class="text-xs text-black"><i class="fas fa-map-marker-alt text-gold mr-2"></i> Lokasi:
-                                Desa Lantapan, Jl. Magulling, Kec. Galang</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="card-modern p-5 shadow-lg animate-view slide-left delay-300">
-                            <h3 class="font-playfair font-bold text-lg text-gold-dark mb-1">Perjamuan</h3>
-                            <p class="text-xs mb-1 text-black"><i class="far fa-calendar-alt text-gold mr-2"></i> Rabu,
-                                18 November 2026</p>
-                            <p class="text-xs mb-1 text-black"><i class="far fa-clock text-gold mr-2"></i> 19.30 WITA -
-                                Selesai</p>
-                            <p class="text-xs text-black"><i class="fas fa-map-marker-alt text-gold mr-2"></i> Lokasi:
-                                Desa Lantapan, Jl. Magulling, Kec. Galang</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 4: GIFT -->
-            <section id="gift" class="slide-section px-6 py-12" data-bg="1">
-                <div class="animate-view morph-rise text-center mb-8 mt-10">
-                    <h2 class="font-brittany text-4xl text-readable mb-2 glass-text-bold">Wedding Gift</h2>
-                    <p class="font-playfair text-xs text-readable-sub glass-text">Doa Restu Anda sangat berarti. Tanda
-                        kasih secara cashless dapat disalurkan melalui:</p>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <!-- Bank 1 -->
-                    <div class="animate-view flip-in card-modern p-5 shadow-lg text-center relative overflow-hidden">
-                        <h3 class="font-bold text-lg text-blue-700">BRI</h3>
-                        <p class="font-mono text-base tracking-widest my-1 text-readable" id="rek-bri">522801024668500
+                    <div class="animate-view morph-rise text-center mb-6 mt-4">
+                        <i class="fas fa-bismillah text-3xl mb-2 text-dusty" style="font-family: serif;">&#65021;</i>
+                        <p class="font-playfair text-sm text-readable-sub leading-relaxed italic">
+                            "Assalamu'alaikum Warahmatullahi Wabarakatuh.<br>
+                            Maha Suci Allah yang telah menciptakan makhluk- Nya berpasang-pasangan. Ya Allah semoga ridho-
+                            Mu tercurah mengiringi pernikahan putra putri kami. Kami Menyelenggarakan Syukuran Pernikahan
+                            Putra Putri Kami."
                         </p>
-                        <p class="text-xs text-readable-muted mb-3">a.n Apriliani</p>
-                        <button onclick="copyText('rek-bri')"
-                            class="bg-white/30 backdrop-blur-sm text-dark text-xs px-4 py-2 rounded-lg shadow-sm hover:bg-white/50 border border-white/40 transition">
-                            <i class="far fa-copy"></i> Salin Rekening
-                        </button>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-6">
+                        <!-- Groom -->
+                        <div class="animate-view flip-in card-modern p-6 flex flex-col items-center w-full max-w-[320px]">
+                            <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-dusty mb-4 shadow-md">
+                                <img src="pria.png" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-brittany text-2xl text-readable text-center mb-1">HAIKAL</h3>
+                        </div>
+
+                        <div class="animate-view pop-in delay-200 text-3xl font-vibes text-gold">&</div>
+
+                        <!-- Bride -->
+                        <div class="animate-view slide-right delay-300 card-modern p-6 flex flex-col items-center w-full max-w-[320px]">
+                            <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-dusty mb-4 shadow-md">
+                                <img src="wanita.png" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="font-brittany text-2xl text-readable text-center mb-1">APRILIANI, S.Pd</h3>
+                        </div>
                     </div>
                 </div>
+            </section>
+<!-- SLIDE 3: SCHEDULE -->
+            <section id="schedule" class="slide-section kubah-slide" >
+                <div class="kubah-card">
+                    <div class="kubah-ornamen"><span></span><span></span></div>
 
+                    <div class="animate-view morph-rise text-center mb-8 mt-4">
+                        <h2 class="font-brittany text-4xl text-readable mb-2">Rangkaian Acara</h2>
+                        <p class="font-playfair text-xs text-readable-sub">Kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+                    </div>
 
-                <!-- Toast Notification -->
-                <div id="toast"
-                    class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none z-[80] text-sm whitespace-nowrap">
-                    Berhasil disalin!
+                    <div class="timeline-container relative w-full px-2">
+                        <div class="timeline-item">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-200">
+                                <h3 class="font-playfair font-bold text-lg text-gold-dark mb-1">Akad</h3>
+                                <p class="text-xs mb-1 text-readable-sub"><i class="far fa-calendar-alt text-gold mr-2"></i> Rabu, 18 November 2026</p>
+                                <p class="text-xs mb-1 text-readable-sub"><i class="far fa-clock text-gold mr-2"></i> 10.00 WITA - Selesai</p>
+                                <p class="text-xs text-readable-sub mb-3"><i class="fas fa-map-marker-alt text-gold mr-2"></i> Lokasi: <a href="https://maps.app.goo.gl/anaxqoVCnBxMgdi76?g_st=atm" target="_blank" rel="noopener noreferrer" class="underline decoration-gold/40 hover:text-gold transition">Desa Lantapan, Jl. Magulling, Kec. Galang</a></p>
+                                <a href="https://maps.app.goo.gl/anaxqoVCnBxMgdi76?g_st=atm" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1.5 bg-white text-dark text-xs px-3.5 py-1.5 rounded-lg shadow-sm hover:bg-gold/10 border border-gold/30 transition">
+                                    <i class="fas fa-map-location-dot text-gold"></i> Buka Google Maps
+                                </a>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-300">
+                                <h3 class="font-playfair font-bold text-lg text-gold-dark mb-1">Perjamuan</h3>
+                                <p class="text-xs mb-1 text-readable-sub"><i class="far fa-calendar-alt text-gold mr-2"></i> Rabu, 18 November 2026</p>
+                                <p class="text-xs mb-1 text-readable-sub"><i class="far fa-clock text-gold mr-2"></i> 19.30 WITA - Selesai</p>
+                                <p class="text-xs text-readable-sub mb-3"><i class="fas fa-map-marker-alt text-gold mr-2"></i> Lokasi: <a href="https://maps.app.goo.gl/anaxqoVCnBxMgdi76?g_st=atm" target="_blank" rel="noopener noreferrer" class="underline decoration-gold/40 hover:text-gold transition">Desa Lantapan, Jl. Magulling, Kec. Galang</a></p>
+                                <a href="https://maps.app.goo.gl/anaxqoVCnBxMgdi76?g_st=atm" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1.5 bg-white text-dark text-xs px-3.5 py-1.5 rounded-lg shadow-sm hover:bg-gold/10 border border-gold/30 transition">
+                                    <i class="fas fa-map-location-dot text-gold"></i> Buka Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
+<!-- SLIDE 4: LOVE STORY -->
+            <section id="story" class="slide-section kubah-slide">
+                <div class="kubah-card">
+                    <div class="kubah-ornamen"><span></span><span></span></div>
 
-            <!-- SLIDE 5: WISHES & FOOTER -->
-            <section id="wishes" class="slide-section px-6 py-12 pb-24" data-bg="2">
-                <div class="animate-view morph-rise text-center mb-6 mt-10">
-                    <h2 class="font-brittany text-4xl text-readable mb-2 glass-text-bold">Kirim Ucapan</h2>
-                    <p class="font-playfair text-xs text-readable-sub glass-text">"Dan di antara tanda-tanda
-                        (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu
-                        cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                    <div class="animate-view morph-rise text-center mb-8 mt-4">
+                        <h2 class="font-brittany text-4xl text-readable mb-2">Kisah Cinta</h2>
+                        <p class="font-playfair text-xs text-readable-sub">Cerita perjalanan cinta kami hingga mengikat janji suci.</p>
+                    </div>
 
-                        Q.S Ar-Rum : 21 <br>.
-                        Tuliskan doa untuk kedua mempelai.</p>
-                </div>
+                    <div class="timeline-container relative w-full px-2">
+                        <!-- Story 1: Awal Bertemu -->
+                        <div class="timeline-item">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-100">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <h3 class="font-playfair font-bold text-base text-gold-dark flex items-center gap-1.5">
+                                        <i class="fas fa-graduation-cap text-gold text-xs"></i> Awal Bertemu
+                                    </h3>
+                                    <span class="text-[10px] font-semibold bg-gold/15 text-gold-dark px-2.5 py-0.5 rounded-full border border-gold/30 shrink-0">2018</span>
+                                </div>
+                                <p class="text-xs text-readable-sub leading-relaxed">
+                                    Segala sesuatu telah tertulis dengan indah dalam rencana-Nya. Kami pertama kali dipertemukan di sekolah MAN sebagai teman satu kelas. Siapa sangka pertemanan sederhana di ruang kelas menjadi awal dari perjalanan panjang kami bersama.
+                                </p>
+                            </div>
+                        </div>
 
-                <div
-                    class="card-modern p-5 shadow-lg border-t-4 border-gold animate-view zoom-in flex flex-col mb-10 w-full max-w-sm mx-auto">
-                    <form id="wish-form" onsubmit="submitWish(event)" class="space-y-3 mb-4">
-                        <input type="text" id="w-name" required placeholder="Nama Anda"
-                            class="w-full px-3 py-2 text-sm bg-white/30 border border-white/40 rounded-lg focus:outline-none focus:border-dusty focus:bg-white/50 transition backdrop-blur-sm placeholder-gray-500">
-                        <select id="w-attend" required
-                            class="w-full px-3 py-2 text-sm bg-white/30 border border-white/40 rounded-lg focus:outline-none focus:border-dusty focus:bg-white/50 transition backdrop-blur-sm text-gray-700">
-                            <option value="" disabled selected>Kehadiran</option>
-                            <option value="Hadir">Hadir</option>
-                            <option value="Tidak Hadir">Tidak Hadir</option>
-                        </select>
-                        <textarea id="w-msg" required rows="2" placeholder="Ucapan & doa..."
-                            class="w-full px-3 py-2 text-sm bg-white/30 border border-white/40 rounded-lg focus:outline-none focus:border-dusty focus:bg-white/50 transition backdrop-blur-sm placeholder-gray-500"></textarea>
-                        <button type="submit"
-                            class="w-full bg-dusty/80 backdrop-blur-sm text-white font-semibold py-2.5 rounded-lg hover:bg-gold transition shadow-lg text-sm border border-dusty/30">
-                            Kirim Ucapan
-                        </button>
-                    </form>
+                        <!-- Story 2: Menjalani Hubungan -->
+                        <div class="timeline-item">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-200">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <h3 class="font-playfair font-bold text-base text-gold-dark flex items-center gap-1.5">
+                                        <i class="fas fa-hand-holding-heart text-gold text-xs"></i> Menjalani Hubungan
+                                    </h3>
+                                    <span class="text-[10px] font-semibold bg-gold/15 text-gold-dark px-2.5 py-0.5 rounded-full border border-gold/30 shrink-0">2026</span>
+                                </div>
+                                <p class="text-xs text-readable-sub leading-relaxed">
+                                    Setelah sekian lama berpisah selama 5 tahun. Takdir rupanya hanya memberi kami jeda bukan titik akhir. Sebuah pertemuan dan tatapan yang tak disengaja kembali menautkan dengan versi diri yang lebih matang. Percakapan sederhana kembali membangun kenyamanan yang sempat hilang. Di tahun 2026, kami mantap membawa komitmen ini ke tahap lamaran.
+                                </p>
+                            </div>
+                        </div>
 
-                    <div class="border-t border-white/30 pt-4 overflow-y-auto max-h-40" id="wishes-container">
-                        <div class="bg-white/25 backdrop-blur-sm p-3 rounded-lg mb-3 border border-white/30">
-                            <div class="flex items-center gap-2 mb-1">
-                                <div
-                                    class="w-6 h-6 rounded-full bg-gold text-white flex items-center justify-center font-bold text-xs">
-                                    A</div>
-                                <div>
-                                    <h4 class="font-bold text-xs text-readable glass-text">Andi</h4>
-                                    <span
-                                        class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Hadir</span>
+                        <!-- Story 3: Lamaran -->
+                        <div class="timeline-item">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-300">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <h3 class="font-playfair font-bold text-base text-gold-dark flex items-center gap-1.5">
+                                        <i class="fas fa-ring text-gold text-xs"></i> Lamaran
+                                    </h3>
+                                    <span class="text-[10px] font-semibold bg-gold/15 text-gold-dark px-2.5 py-0.5 rounded-full border border-gold/30 shrink-0">5 Nov 2026</span>
+                                </div>
+                                <p class="text-xs text-readable-sub leading-relaxed mb-2">
+                                    Atas kehendak-Nya, serta restu dari orang tua dan keluarga kami melangsungkan lamaran pada 5 November 2026.
+                                </p>
+                                <div class="border-l-2 border-gold/60 pl-3 py-1 bg-gold/5 rounded-r-lg">
+                                    <p class="font-playfair text-[11px] italic text-dusty-dark leading-relaxed">
+                                        "Pada akhirnya, jemari akan menemukan genggaman yang tepat, kepala akan menemukan bahu yang tepat, hati akan menemukan rumah yang tepat."
+                                    </p>
                                 </div>
                             </div>
-                            <p class="text-xs text-readable-sub glass-text">Selamat menempuh hidup baru Haikal dan
-                                Apriliani.
-                                Semoga langgeng selamanya.</p>
+                        </div>
+
+                        <!-- Story 4: Menikah -->
+                        <div class="timeline-item mb-0">
+                            <div class="card-modern p-5 shadow-lg animate-view slide-left delay-400">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <h3 class="font-playfair font-bold text-base text-gold-dark flex items-center gap-1.5">
+                                        <i class="fas fa-heart text-gold text-xs"></i> Menikah
+                                    </h3>
+                                    <span class="text-[10px] font-semibold bg-gold/15 text-gold-dark px-2.5 py-0.5 rounded-full border border-gold/30 shrink-0">18 Nov 2026</span>
+                                </div>
+                                <p class="text-xs text-readable-sub leading-relaxed mb-2">
+                                    Bukan karena bertemu lalu berjodoh tapi karena berjodohlah kami dipertemukan. Kami memutuskan untuk mengikrarkan janji suci pernikahan pada tanggal 18 November 2026.
+                                </p>
+                                <div class="border-l-2 border-gold/60 pl-3 py-1 bg-gold/5 rounded-r-lg">
+                                    <p class="font-playfair text-[11px] italic text-dusty-dark leading-relaxed">
+                                        Insya Allah, sebagaimana perkataan indah Sayyidina Ali Bin Abi Thalib:<br>
+                                        <span class="font-semibold text-readable">"Apa yang menjadi takdirmu akan menemukan jalannya untuk menemukanmu."</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+<!-- SLIDE 5: GIFT -->
+            <section id="gift" class="slide-section kubah-slide" >
+                <div class="kubah-card">
+                    <div class="kubah-ornamen"><span></span><span></span></div>
 
-                <!-- Footer embedded in last slide -->
-                <div class="text-center mt-auto animate-view morph-rise delay-200">
-                    <h2 class="font-brittany text-4xl text-readable mb-4">Thank You</h2>
+                    <div class="animate-view morph-rise text-center mb-8 mt-4">
+                        <h2 class="font-brittany text-4xl text-readable mb-2">Wedding Gift</h2>
+                        <p class="font-playfair text-xs text-readable-sub">Doa Restu Anda sangat berarti. Tanda kasih secara cashless dapat disalurkan melalui:</p>
+                    </div>
 
-                    <div class="card-modern p-4 shadow-lg max-w-[260px] mx-auto mt-2 mb-4">
-                        <p class="text-[10px] text-black font-medium mb-1">Undangan Digital Dibuat Oleh</p>
-                        <h4 class="font-playfair font-bold text-sm text-gold-dark mb-2">WarDigital</h4>
-                        <a href="https://instagram.com/war.digital_" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center gap-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[11px] font-semibold px-4 py-1.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
-                            <i class="fab fa-instagram text-sm"></i> @war.digital_
-                        </a>
-                        <p class="text-[9px] text-readable-muted mt-2">© 2026 All Rights Reserved</p>
+                    <div class="flex flex-col gap-4">
+                        <!-- Bank BRI -->
+                        <div class="animate-view flip-in card-modern p-5 shadow-lg text-center relative overflow-hidden">
+                            <h3 class="font-bold text-lg text-blue-700">BRI</h3>
+                            <p class="font-mono text-base tracking-widest my-1 text-readable" id="rek-bri">522801024668500</p>
+                            <p class="text-xs text-readable-muted mb-3">a.n Apriliani</p>
+                            <button onclick="copyText('rek-bri')"
+                                class="bg-white text-dark text-xs px-4 py-2 rounded-lg shadow-sm hover:bg-gold/10 border border-gold/20 transition">
+                                <i class="far fa-copy"></i> Salin Rekening
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Toast Notification -->
+                    <div id="toast"
+                        class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none z-[80] text-sm whitespace-nowrap">
+                        Berhasil disalin!
                     </div>
                 </div>
             </section>
-        </div> <!-- End Content Wrapper -->
+<!-- SLIDE 6: WISHES & FOOTER -->
+            <section id="wishes" class="slide-section kubah-slide" >
+                <div class="kubah-card">
+                    <div class="kubah-ornamen"><span></span><span></span></div>
+
+                    <div class="animate-view morph-rise text-center mb-6 mt-4">
+                        <h2 class="font-brittany text-4xl text-readable mb-2">Kirim Ucapan</h2>
+                        <p class="font-playfair text-xs text-readable-sub">"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                            Q.S Ar-Rum : 21<br>.
+                            Tuliskan doa untuk kedua mempelai.</p>
+                    </div>
+
+                    <div class="card-modern p-5 shadow-lg border-t-4 border-gold animate-view zoom-in flex flex-col mb-10 w-full max-w-sm mx-auto">
+                        <form id="wish-form" onsubmit="submitWish(event)" class="space-y-3 mb-4">
+                            <input type="text" id="w-name" required placeholder="Nama Anda"
+                                class="w-full px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-dusty transition placeholder-gray-400">
+                            <select id="w-attend" required
+                                class="w-full px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-dusty transition text-gray-700">
+                                <option value="" disabled selected>Kehadiran</option>
+                                <option value="Hadir">Hadir</option>
+                                <option value="Tidak Hadir">Tidak Hadir</option>
+                            </select>
+                            <textarea id="w-msg" required rows="2" placeholder="Ucapan &amp; doa..."
+                                class="w-full px-3 py-2 text-sm bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-dusty transition placeholder-gray-400"></textarea>
+                            <button type="submit"
+                                class="w-full bg-dusty text-white font-semibold py-2.5 rounded-lg hover:bg-gold transition shadow-md text-sm">
+                                Kirim Ucapan
+                            </button>
+                        </form>
+
+                        <div class="border-t border-gray-100 pt-4 overflow-y-auto max-h-40" id="wishes-container">
+                            <div class="bg-gray-50 p-3 rounded-lg mb-3 border border-gray-100">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="w-6 h-6 rounded-full bg-gold text-white flex items-center justify-center font-bold text-xs">A</div>
+                                    <div>
+                                        <h4 class="font-bold text-xs text-readable">Andi</h4>
+                                        <span class="text-[10px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Hadir</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-readable-sub">Selamat menempuh hidup baru Haikal dan Apriliani. Semoga langgeng selamanya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="text-center animate-view morph-rise delay-200 pb-4">
+                        <h2 class="font-brittany text-4xl text-readable mb-4">Thank You</h2>
+                        <div class="card-modern p-4 shadow-lg max-w-[260px] mx-auto mt-2 mb-4">
+                            <p class="text-[10px] text-readable-sub font-medium mb-1">Undangan Digital Dibuat Oleh</p>
+                            <h4 class="font-playfair font-bold text-sm text-gold-dark mb-2">WarDigital</h4>
+                            <a href="https://instagram.com/war.digital_" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center gap-1.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[11px] font-semibold px-4 py-1.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
+                                <i class="fab fa-instagram text-sm"></i> @war.digital_
+                            </a>
+                            <p class="text-[9px] text-readable-muted mt-2">&copy; 2026 All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</div> <!-- End Content Wrapper -->
     </div> <!-- End App Container -->
 
     <script>
@@ -975,7 +1108,7 @@
         }
 
         // 4. Countdown Timer
-        const targetDate = new Date("Oct 7, 2026 10:00:00").getTime();
+        const targetDate = new Date("Nov 18, 2026 10:00:00").getTime();
         setInterval(() => {
             const distance = targetDate - new Date().getTime();
             if (distance < 0) return;
@@ -1118,23 +1251,7 @@
             threshold: 0.08
         });
 
-        const bgObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const bgType = entry.target.getAttribute('data-bg');
-                    if (bgType === '1') {
-                        document.getElementById('bg-layer-1').style.opacity = '1';
-                        document.getElementById('bg-layer-2').style.opacity = '0';
-                    } else if (bgType === '2') {
-                        document.getElementById('bg-layer-1').style.opacity = '0';
-                        document.getElementById('bg-layer-2').style.opacity = '1';
-                    }
-                }
-            });
-        }, {
-            root: document.getElementById('app-container'),
-            threshold: 0.4
-        });
+        // Background photo is now isolated to slide 1 only
 
         // Split photo observer � ulang animasi saat scroll kembali ke hero
         const splitObserver = new IntersectionObserver((entries) => {
@@ -1157,7 +1274,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.animate-view').forEach(el => observer.observe(el));
-            document.querySelectorAll('section[data-bg]').forEach(el => bgObserver.observe(el));
+            // bgObserver removed
             const heroSection = document.getElementById('hero');
             if (heroSection) splitObserver.observe(heroSection);
         });
